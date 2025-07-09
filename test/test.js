@@ -1,4 +1,3 @@
-console.log("Test file loaded");
 
 const request = require('supertest');
 const app = require('../app');
