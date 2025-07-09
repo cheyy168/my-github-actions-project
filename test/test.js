@@ -1,7 +1,18 @@
-const assert = require('chai').assert;
+console.log("Test file loaded");
+
+const request = require('supertest');
 const app = require('../app');
-describe('Simple test', function() {
- it('should return hello message', function() {
- assert.equal('Hello, GitHub Actions!', 'Hello, GitHub Actions!');
- });
+const assert = require('chai').assert;
+
+describe('GET /', function() {
+  it('responds with Hello, GitHub Actions!', function(done) {
+    request(app)
+      .get('/')
+      .expect(200)
+      .end(function(err, res) {
+        if (err) return done(err);
+        assert.equal(res.text, 'Hello, GitHub Actions!');
+        done();
+      });
+  });
 });
