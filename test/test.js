@@ -11,7 +11,7 @@ describe('GET /', function() {
       .expect(200)
       .end(function(err, res) {
         if (err) return done(err);
-        assert.equal(res.text, 'Hello, CI/CD');
+        assert.equal(res.text, 'Hello, GitHub Actions!');
         done();
       });
   });
